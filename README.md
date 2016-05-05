@@ -36,6 +36,6 @@ source( "Step 05.02 - Regressions.R" )
 
 Note that files are chained together, so if you run Step 05, it will automatically run Step 04 to Step 01 recursively.
 
-Questions:
+#####Questions:
 * How to find data dictionary for census variables
 * How to download crime data in http://www.syracuse.com/crime/police-reports/
