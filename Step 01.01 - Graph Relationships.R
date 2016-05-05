@@ -24,9 +24,19 @@ plotFun <- function( x1, x2=price, lab1, lab2="House Price" )
 
 }
 
+# plot(dat$sqft,dat$price, 
+#      pch=19, #type of points to plot
+#      col=gray(0.6, alpha = 0.3), 
+#      cex=1.5,  #aspect ratio of point size
+#      bty = "n", #no border of box
+#      xlab="Size (Square Feet)", 
+#      ylab="House Price", cex.lab=1.5) #aspect ratio for line thickness
 
+# lines(lowess(dat$sqft, dat$price), col="blue", lwd=2)
 
-
+# lowess(x,y)
+# This function performs the computations for the LOWESS smoother 
+# which uses locally-weighted polynomial regression (see the references).
 
 
 # CREATE GRAPHS AND SAVE AS PDF
@@ -38,6 +48,8 @@ dir.create( "Results" ) # set up a results directory
 
 pdf( "./Results/Predictors of Price.pdf" )
 
+# plot continous/numerical variables like house size("sqft"),lot size, house years, walk score,
+# number of schools, DIST TO RESTAURANT, DIST TO park, DIST TO starbucks,DIST TO mall with price
 
 # HOUSE SIZE (SQFT)
 
@@ -100,7 +112,7 @@ plotFun( x1=dat$restaurant, x2=dat$price, lab1="Dist to Mall", lab2="House Price
 
 
 
-
+# plot boxplot for categorical data as "garage", "highway", "bath", "beds" with price
 
 plot( as.factor(dat$garage), dat$price, ylab="House Price", xlab="Garage" )
 tapply( dat$price, as.factor(dat$garage), mean )
