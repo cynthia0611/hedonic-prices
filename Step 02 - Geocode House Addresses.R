@@ -3,10 +3,9 @@
 
 source( "Step 01 - Load Housing Data.R" )
 
-
 houses <- dat[ , c("address","zip") ]
 
-
+# remove comma and period from address variable
 houses$address <- gsub( ",", "", houses$address )
 houses$address <- gsub( "\\.", "", houses$address )
 
@@ -52,15 +51,17 @@ syr.map <- ggmap(
 
                   
 
+# The point geom is used to create scatterplots.
+
 syr.map + geom_point( 
-                      data=lat.long, 
+                      data=lat.long, #a data frame
                       aes(x=lon, y=lat), 
+                      #define aesthetic mapping
+                      #how variables in the data mapped to visual properties
                       size=2, 
                       col="red", 
-                      alpha=1     
+                      alpha=1   #transparent level, .1~1, 1 means solid  
                     ) 
-
-
 
 
 dat <- cbind( dat, lat.long )
